@@ -4,6 +4,7 @@ import services.UserService;
 import models.User;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -29,12 +30,9 @@ public class UserServlet extends HttpServlet {
             }
         }
         
-        ArrayList<User> users = null;        
+        List<User> users = null;        
         try {
-            users = (ArrayList<User>) us.getAll();
-           
-            
-            
+            users = us.getAll(); 
         } catch (Exception ex) {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,12 +66,14 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("errorMessage", "Whoops.  Could not perform that action.");
         }
         
-        ArrayList<User> users = null;
+        List<User> users = null;
         try {
-            users = (ArrayList<User>) us.getAll();
+            users = us.getAll();
         } catch (Exception ex) {
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         request.setAttribute("users", users);
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
     }

@@ -16,6 +16,8 @@
                 <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Role</th>
+                <th>Note titles</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -24,6 +26,15 @@
                     <td>${user.username}</td>
                     <td>${user.firstname}</td>
                     <td>${user.lastname}</td>
+                    <td>${user.role.rolename}</td>
+                    <td>
+                        <ul>
+                        <c:forEach var="note" items="${user.noteList}">
+                            <li>${note.title}</li>
+                        </c:forEach>
+                        </ul>
+                    </td>
+                    
                     <td>
                         <form action="users" method="post" >
                             <input type="submit" value="Delete">

@@ -39,7 +39,10 @@ public class UserService {
     }
 
     public int insert(String username, String password, String firstname, String lastname, String email) throws Exception {
-        User user = new User(username, password, firstname, lastname, email);
+        User user = new User(username, password);
+        user.setFirstname(firstname);
+        user.setLastname(lastname);
+        user.setEmail(email);
         return userDB.insert(user);
     }
 }
