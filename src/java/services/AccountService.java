@@ -6,7 +6,10 @@
 package services;
 
 import database.UserDB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
+import sun.util.logging.PlatformLogger;
 
 /**
  *
@@ -20,6 +23,9 @@ public class AccountService {
             User user = userDB.getUser(username);
 
             if (user.getPassword().equals(password)) {
+                // successful login
+                Logger.getLogger(AccountService.class.getName())
+                        .log(Level.INFO, "User {0} logged in.", user.getUsername());
                 return user;
             }
         } catch (Exception e) {
