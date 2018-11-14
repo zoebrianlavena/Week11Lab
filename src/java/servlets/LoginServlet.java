@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         
         
         AccountService ac = new AccountService();
-        if (ac.login(username, password) != null) {
+        if (ac.login(username, password, getServletContext().getRealPath("/WEB-INF")) != null) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             response.sendRedirect("users");
