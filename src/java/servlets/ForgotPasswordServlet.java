@@ -31,12 +31,14 @@ public class ForgotPasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String path = getServletContext().getRealPath("/WEB/INF");
+        String path = getServletContext().getRealPath("/WEB-INF");
         String email = request.getParameter("email");
         AccountService accountservice = new AccountService();
         
         if(accountservice.forgotPassword(email, path)){
-            request.setAttribute("message", "working yey!");
+            request.setAttribute("message", "Email Sent.");
+        } else {
+            request.setAttribute("message", "Email Not Found in DB.");
         }
         
         

@@ -40,6 +40,7 @@ public class GmailService {
             // send email
             sendMail(email, subject, body, true);
             
+            
         } catch (Exception ex) {
             Logger.getLogger(GmailService.class.getName()).log(Level.SEVERE, null, ex);
         }

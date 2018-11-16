@@ -51,7 +51,7 @@ public class AccountService {
 
     public boolean forgotPassword(String email, String path) {
         try {
-            path += "/emailtemplates/newlogin.html";
+            
 
             UserService userservice = new UserService();
             User user = userservice.getUserByEmail(email);
