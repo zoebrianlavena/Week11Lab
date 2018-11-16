@@ -44,6 +44,7 @@ INSERT INTO `users` VALUES ('admin3', 'password', 'Admin3', 'Admin3', 'cprg352+a
 INSERT INTO `users` VALUES ('anne', 'password', 'Anne', 'Annie', 'cprg352+anne@gmail.com', 2);
 INSERT INTO `users` VALUES ('barb', 'password', 'Barb', 'Barker', 'cprg352+barb@gmail.com', 2);
 INSERT INTO `users` VALUES ('carl', 'password', 'Carl', 'Carlson', 'cprg352+carl@gmail.com', 2);
+INSERT INTO `users` VALUES ('zoe', 'password', 'Zoe', 'Lavena', 'cprg352zoelavena@gmail.com', 2);
 
 INSERT INTO `notes` (`datecreated`, `title`, `contents`, `owner`) VALUES (NOW(), 'Sample note 1', 'This is a sample note.\n\nMore text in the sample note.', 'anne');
 INSERT INTO `notes` (`datecreated`, `title`, `contents`, `owner`) VALUES (NOW(), 'Sample note 2', 'This is a sample note.\n\nMore text in the sample note.', 'anne');

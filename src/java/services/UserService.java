@@ -1,5 +1,6 @@
 package services;
 
+import database.NotesDBException;
 import database.UserDB;
 import models.User;
 import java.util.List;
@@ -14,6 +15,10 @@ public class UserService {
 
     public User get(String username) throws Exception {
         return userDB.getUser(username);
+    }
+    
+    public User getUserByEmail(String email) throws NotesDBException{
+        return userDB.getUserByEmail(email);
     }
 
     public List<User> getAll() throws Exception {
@@ -45,4 +50,5 @@ public class UserService {
         user.setEmail(email);
         return userDB.insert(user);
     }
+    
 }
