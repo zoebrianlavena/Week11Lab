@@ -1,6 +1,6 @@
 <%-- 
-    Document   : reset
-    Created on : Nov 16, 2018, 4:26:23 PM
+    Document   : resetNewPassword
+    Created on : Nov 20, 2018, 12:45:51 PM
     Author     : 743953
 --%>
 
@@ -12,12 +12,11 @@
         <title>Reset Password</title>
     </head>
     <body>
-        <h1>Reset Password</h1>
-        Please enter your email address to reset your password. <br>
-        <form method="post" action="reset">
-            Email Address: <input type="text" name="email" ${readonly}/>
+        <h1>Enter a new password</h1>
+        <form method="post" action="reset?action=change">
+            <input type="password" name="newpassword"/>
+            <input type="hidden" name="hiddenuuid" value="${uuid}"/>
             <input type="submit" value="Submit"/>
         </form>
-        ${message}
     </body>
 </html>

@@ -19,6 +19,7 @@
             <input type="submit" value="Submit">
         </form>
         <a href="forgot">Forgot Password</a> <br>
-        <a href="reset">Reset Password</a>
+        <a href="reset">Reset Password</a> <br>
+        ${message}
     </body>
 </html>

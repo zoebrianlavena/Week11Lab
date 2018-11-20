@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author awarsyle
+ * @author 743953
  */
 @Entity
 @Table(name = "users")
@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
     , @NamedQuery(name = "User.findByFirstname", query = "SELECT u FROM User u WHERE u.firstname = :firstname")
     , @NamedQuery(name = "User.findByLastname", query = "SELECT u FROM User u WHERE u.lastname = :lastname")
-    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")})
+    , @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+    , @NamedQuery(name = "User.findByResetPasswordUUID", query = "SELECT u FROM User u WHERE u.resetPasswordUUID = :resetPasswordUUID")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,6 +53,9 @@ public class User implements Serializable {
     private String lastname;
     @Column(name = "email")
     private String email;
+    @Basic(optional = false)
+    @Column(name = "ResetPasswordUUID")
+    private String resetPasswordUUID;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
     private List<Note> noteList;
     @JoinColumn(name = "role", referencedColumnName = "roleid")
@@ -65,9 +69,10 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String resetPasswordUUID) {
         this.username = username;
         this.password = password;
+        this.resetPasswordUUID = resetPasswordUUID;
     }
 
     public String getUsername() {
@@ -108,6 +113,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getResetPasswordUUID() {
+        return resetPasswordUUID;
+    }
+
+    public void setResetPasswordUUID(String resetPasswordUUID) {
+        this.resetPasswordUUID = resetPasswordUUID;
     }
 
     @XmlTransient
